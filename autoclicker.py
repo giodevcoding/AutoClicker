@@ -15,6 +15,10 @@ running = True
 setx = 0
 sety = 0
 
+
+offstr = "OFF"
+onstr =  "ON"
+
 def getCursorPos():
     pt = wintypes.POINT()
     windll.user32.GetCursorPos(byref(pt))
@@ -60,7 +64,7 @@ def mainfun():
     doClick = 0
     clickedSec = 0
     clickedLast = 0
-    toggle = "OFF"
+    toggle = offstr
     print("AutoClicker Initialized!")
     print("\nPress HOME anywhere to toggle autoclicking, and press ESC in console window to exit autoclicker.\n")
     while running:
@@ -75,9 +79,9 @@ def mainfun():
                 handleMouse()
                 clickedSec += 1
             doClick += 1
-            toggle = "ON"
+            toggle = onstr
         else:
-            toggle = "OFF"
+            toggle = offstr
 
         if(milliTime() - timer >= 1000):
             timer = milliTime()
